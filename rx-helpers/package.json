@@ -1,9 +1,27 @@
 {
-  "name": "rx-helpers",
+  "name": "@code-art/rx-helpers",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "rxjs": "^6.0.0"
-  }
+  },
+  "private": false,
+  "description": "A library with Rxjs operators that can be used in your Angular 6 projects.",
+  "author": "Sherif Elmetainy (Code Art)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sherif-elmetainy/rx-helpers/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sherif-elmetainy/rx-helpers.git"
+  },
+  "keywords": [
+    "angular",
+    "rxjs",
+    "takeUntilDestroyed",
+    "withZone"
+  ],
+  "homepage": "https://github.com/sherif-elmetainy/rx-helpers#readme"
 }
