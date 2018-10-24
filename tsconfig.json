@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@code-art/rx-helpers": [
+        "dist/rx-helpers"
+      ],
+      "@code-art/rx-helpers/*": [
+        "dist/rx-helpers/*"
+      ]
+    }
   }
 }

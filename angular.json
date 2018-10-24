@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": ".",
+  "newProjectRoot": "",
   "projects": {
     "rx-helpers-app": {
       "root": "",
@@ -119,6 +119,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "rx-helpers": {
+      "root": "rx-helpers",
+      "sourceRoot": "rx-helpers/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "rx-helpers/tsconfig.lib.json",
+            "project": "rx-helpers/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "rx-helpers/src/test.ts",
+            "tsConfig": "rx-helpers/tsconfig.spec.json",
+            "karmaConfig": "rx-helpers/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "rx-helpers/tsconfig.lib.json",
+              "rx-helpers/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

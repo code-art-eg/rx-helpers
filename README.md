@@ -1,27 +1,81 @@
-# RxHelpersApp
+# @code-art/rx-helpers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+## About the library
 
-## Development server
+A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be used in your [Angular 6](https://angular.io) projects.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Consuming the library
 
-## Code scaffolding
+### 1. Installing the library
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To install the library in your Angular application you need to run the following commands:
 
-## Build
+```bash
+$ npm install @code-art/rx-helper --save
+```
+or
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+$ yarn add @code-art/rx-helper
+```
 
-## Running unit tests
+### 2. Using withZone operator
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The withZone operator will cause the observable next, error and complete callbacks to be executed withing an Angular `NgZone`. This is useful when having asynchronous events that are triggered outside Angular such as a server event when websockets, etc.
 
-## Running end-to-end tests
+```typescript
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { withZone } from '@code-art/rx-helpers';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+@Component({
+  selector: 'app-with-zone-example',
+  templateUrl: './with-zone-example.component.html',
+})
+export class WithZoneExampleComponent  {
 
-## Further help
+  timerSubject = new Subject<number>();
+  timerWithZone: Observable<number>;
+  private _value = 1;
+  constructor(private readonly zone: NgZone) {
+    this.timerWithZone = this.timerSubject.pipe(withZone(this.zone));
+    zone.runOutsideAngular(() => {
+      // The next operator executes outside angular.
+      setInterval(() => this.timerSubject.next(this._value++), 1000);
+    });
+   }
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+
+### 3. Using takeUntilDestroyed operator
+
+The `takeUntilDestroyed` operator will cause the observable to emit values until a component, pipe or directive are destroyed (ngOnDestroy called). 
+
+```typescript
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { timer } from 'rxjs';
+import { takeUntilDestroyed } from '@code-art/rx-helpers';
+
+@Component({
+  selector: 'app-take-until-destroyed-example',
+  templateUrl: './take-until-destroyed-example.component.html',
+})
+export class TakeUntilDestroyedExampleComponent implements OnDestroy {
+  timer = timer(1000, 1000).pipe(takeUntilDestroyed(this));
+
+  constructor() {
+    this.timer.subscribe(() => {}, () => {}, () => {
+      console.log('completed');
+    });
+  }
+
+  ngOnDestroy(): void {
+    console.log('destroyed');
+  }
+}
+```
+
+## License
+
+MIT © Sherif Elmetainy \(Code Art\)
