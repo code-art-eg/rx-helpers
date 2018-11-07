@@ -2,6 +2,8 @@
   "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../dist/rx-helpers",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "amdId": "@code-art/rx-helpers",
+    "umdId": "codeArt.rxHelpers"
   }
 }
