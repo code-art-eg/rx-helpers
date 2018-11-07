@@ -1,20 +1,6 @@
 import { NgZone } from '@angular/core';
 import { MonoTypeOperatorFunction, Observable, Operator, Subscribable, Subscriber, TeardownLogic } from 'rxjs';
 
-export function withZone<T>(zone: NgZone): MonoTypeOperatorFunction<T> {
-    return (source: Observable<T>) => source.lift(new ZoneOperator(zone));
-}
-
-class ZoneOperator<T> implements Operator<T, T> {
-    constructor(private readonly _zone: NgZone) {
-
-    }
-
-    public call(subscriber: Subscriber<T>, source: Subscribable<T>): TeardownLogic {
-        return source.subscribe(new ZoneSubscriber<T>(this._zone, subscriber));
-    }
-}
-
 class ZoneSubscriber<T> extends Subscriber<T> {
     constructor(private readonly _zone: NgZone, destination: Subscriber<T>) {
         super(destination);
@@ -43,4 +29,18 @@ class ZoneSubscriber<T> extends Subscriber<T> {
             }
         });
     }
+}
+
+class ZoneOperator<T> implements Operator<T, T> {
+    constructor(private readonly _zone: NgZone) {
+
+    }
+
+    public call(subscriber: Subscriber<T>, source: Subscribable<T>): TeardownLogic {
+        return source.subscribe(new ZoneSubscriber<T>(this._zone, subscriber));
+    }
+}
+
+export function withZone<T>(zone: NgZone): MonoTypeOperatorFunction<T> {
+    return (source: Observable<T>) => source.lift(new ZoneOperator(zone));
 }

@@ -7,7 +7,7 @@ const destroySubjectSymbol = Symbol();
 
 interface ComponentWithTakeUntilDestroy extends OnDestroy {
     [destroySubjectSymbol]: Subject<number>;
-    [originalOnDestroySymbol](): void;
+    [originalOnDestroySymbol]: () => void;
 }
 
 function ensureOnDestroyAttached(component: ComponentWithTakeUntilDestroy) {
