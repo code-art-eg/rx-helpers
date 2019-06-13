@@ -11,12 +11,12 @@ A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be u
 To install the library in your Angular application you need to run the following commands:
 
 ```bash
-$ npm install @code-art/rx-helper --save
+$ npm install @code-art/rx-helpers --save
 ```
 or
 
 ```bash
-$ yarn add @code-art/rx-helper
+$ yarn add @code-art/rx-helpers
 ```
 
 ### 2. Using withZone operator
