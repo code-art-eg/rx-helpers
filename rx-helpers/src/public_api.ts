@@ -5,3 +5,4 @@
 export { takeUntilDestroyed } from './lib/operators/takeUntilDestroyed';
 export { withZone } from './lib/operators/withZone';
 export { outsideZone } from './lib/operators/outsideZone';
+export { cacheUntil } from './lib/operators/cacheUntil';
