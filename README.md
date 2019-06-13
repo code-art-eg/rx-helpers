@@ -76,6 +76,42 @@ export class TakeUntilDestroyedExampleComponent implements OnDestroy {
 }
 ```
 
+### 4. using cacheUntil operator
+
+The `cacheUntil` operator will subscribe to the observable and cache first emission until provided observable emits, then it will resubscribe. 
+
+
+```typescript
+
+const currentTime = new Observable<Date>(observer => {
+  observer.next(new Date());
+  observer.complete();
+  return {
+    unsubscribe: () => {},
+  };
+});
+
+const s = new Subject();
+const obs = currentTime.pipe(
+  cacheUntil(s);
+);
+
+let d: Date | null = null; // d === null
+let complete = false;
+const sub = obs.subscribe({
+    next: (v) => d = v,
+    complete: () => complete = true;
+  }
+);
+
+// d has a non null value now
+// complete is false.
+
+s.next(0); // d has a new value
+s.complete(); // complete === true
+
+sub.unsubscribe();
+```
 ## License
 
 MIT © Sherif Elmetainy \(Code Art\)
