@@ -2,7 +2,7 @@
 
 ## About the library
 
-A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be used in your [Angular 6](https://angular.io) projects.
+A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be used in your [Angular 8](https://angular.io) projects.
 
 ## Consuming the library
 
