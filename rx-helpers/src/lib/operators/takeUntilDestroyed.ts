@@ -77,7 +77,7 @@ function applyOnDestroyHook(def: HookableDefinition, handler: (this: InstanceWit
   };
 }
 
-function applyOnDestroyToProvider(def: ProviderType, handler: (this: InstanceWithTakeUntilDestroy) => void) {
+function applyOnDestroyToProvider(def: Function, handler: (this: InstanceWithTakeUntilDestroy) => void) {
   const oldOnDestroy = def.prototype.ngOnDestroy;
   def.prototype.ngOnDestroy = function (this: InstanceWithTakeUntilDestroy, ...args: []): void {
     if (oldOnDestroy) {
@@ -123,19 +123,15 @@ function applyOnDestroyToInstance(instance: InstanceWithTakeUntilDestroy): void 
   }
 }
 
-function applyOnDestroyToClass(target: Function): void {
+function applyOnDestroyToClass(target: FunctionWithDecorator): void {
   if (isComponentType(target)) {
     applyOnDestroyHook(target.ɵcmp, doOnDestroy);
   } else if (isDirectiveType(target)) {
     applyOnDestroyHook(target.ɵdir, doOnDestroy);
   } else if (isPipeType(target)) {
     applyOnDestroyHook(target.ɵpipe, doOnDestroy);
-  } else if (isProviderType(target)) {
-    applyOnDestroyToProvider(target, doOnDestroy);
   } else {
-    throw new Error(`Decorator ${
-        TakeUntilDestroyed.name
-      } can only be applied to pipes (@Pipe), components (@Component), directorives (@Directive) or services (@Injectable).`);
+    applyOnDestroyToProvider(target, doOnDestroy);
   }
   target[DECORATOR_APPLIED_SYMBOL] = true;
 }
