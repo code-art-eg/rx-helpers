@@ -1,9 +1,9 @@
 {
   "name": "@code-art/rx-helpers",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
     "rxjs": "^6.0.0"
   },
   "private": false,
@@ -11,11 +11,11 @@
   "author": "Sherif Elmetainy (Code Art)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sherif-elmetainy/rx-helpers/issues"
+    "url": "https://github.com/code-art-eg/rx-helpers/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sherif-elmetainy/rx-helpers.git"
+    "url": "git+https://github.com/code-art-eg/rx-helpers.git"
   },
   "keywords": [
     "angular",
@@ -23,5 +23,5 @@
     "takeUntilDestroyed",
     "withZone"
   ],
-  "homepage": "https://github.com/sherif-elmetainy/rx-helpers#readme"
+  "homepage": "https://github.com/code-art-eg/rx-helpers#readme"
 }

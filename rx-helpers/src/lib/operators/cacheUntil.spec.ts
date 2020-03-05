@@ -6,7 +6,7 @@ const currentTime = new Observable<Date>((observer) => {
   observer.next(new Date());
   observer.complete();
   return {
-    unsubscribe: () => {},
+    unsubscribe: () => { },
   };
 });
 
@@ -32,7 +32,7 @@ describe('cacheUntil', () => {
     let complete = false;
     const sub = obs.subscribe((v) => {
       d = v;
-    }, () => {}, () => complete = true);
+    }, () => { }, () => complete = true);
 
 
     expect(complete).toBeFalsy();

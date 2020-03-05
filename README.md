@@ -2,7 +2,7 @@
 
 ## About the library
 
-A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be used in your [Angular 8](https://angular.io) projects.
+A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be used in your [Angular 9](https://angular.io) projects.
 
 ## Consuming the library
 
@@ -21,7 +21,7 @@ $ yarn add @code-art/rx-helpers
 
 ### 2. Using withZone operator
 
-The withZone operator will cause the observable next, error and complete callbacks to be executed withing an Angular `NgZone`. This is useful when having asynchronous events that are triggered outside Angular such as a server event when websockets, etc.
+The withZone operator will cause the observable next, error and complete callbacks to be executed withing an Angular `NgZone`. This is useful when having asynchronous events that are triggered outside Angular such as a server event using websockets, etc.
 
 ```typescript
 import { Component, OnInit, NgZone } from '@angular/core';
@@ -52,11 +52,15 @@ export class WithZoneExampleComponent  {
 
 The `takeUntilDestroyed` operator will cause the observable to emit values until a component, pipe or directive are destroyed (ngOnDestroy called). 
 
+**Note**: Starting with Angular 9 the `@TakeUntilDestroyed` decorator needs to be applied to components, directives, pipes and services with Ivy.
+
 ```typescript
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { timer } from 'rxjs';
-import { takeUntilDestroyed } from '@code-art/rx-helpers';
+import { takeUntilDestroyed, TakeUntilDestroyed } from '@code-art/rx-helpers';
 
+/* The following decorator is needed for components, directives, pipes and services when using Ivy */
+@TakeUntilDestroyed() 
 @Component({
   selector: 'app-take-until-destroyed-example',
   templateUrl: './take-until-destroyed-example.component.html',

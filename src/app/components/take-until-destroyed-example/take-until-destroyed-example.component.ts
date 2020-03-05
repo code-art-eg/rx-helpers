@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { timer } from 'rxjs';
-import { takeUntilDestroyed } from '@code-art/rx-helpers';
+import { takeUntilDestroyed, TakeUntilDestroyed } from '@code-art/rx-helpers';
 
+@TakeUntilDestroyed()
 @Component({
   selector: 'app-take-until-destroyed-example',
   templateUrl: './take-until-destroyed-example.component.html',
