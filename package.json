@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4203 --open",
-    "build": "ng build rx-helpers --prod && cp-cli README.md dist/rx-helpers/README.md && cp-cli LICENSE dist/rx-helpers/LICENSE && cd dist/rx-helpers && tar -czf ../rx-helpers.tgz *",
+    "build": "ng build rx-helpers --prod && cp-cli README.md dist/rx-helpers/README.md && cp-cli LICENSE dist/rx-helpers/LICENSE",
     "test": "ng test --project rx-helpers",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -32,19 +32,20 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
-    "codelyzer": "^5.1.2",
+    "codelyzer": "~5.2.2",
     "cp-cli": "^1.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~2.0.1",
+    "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "1.4.2",
-    "ng-packagr": "^9.0.0",
+    "ng-packagr": "^9.1.0",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.7.5"
+    "tsickle": "~0.38.1",
+    "tslint": "~6.1.0",
+    "typescript": "~3.8.3"
   }
 }

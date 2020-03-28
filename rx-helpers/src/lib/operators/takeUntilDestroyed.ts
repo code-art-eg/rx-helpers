@@ -40,19 +40,19 @@ interface PipeType extends FunctionWithDecorator {
   ɵpipe: DirectiveDefinition;
 }
 
-function isComponentType(type: Function): type is ComponentType {
+function isComponentType(type: FunctionWithDecorator): type is ComponentType {
   return type && !!(type as ComponentType).ɵcmp;
 }
 
-function isDirectiveType(type: Function): type is DirectiveType {
+function isDirectiveType(type: FunctionWithDecorator): type is DirectiveType {
   return type && !!(type as DirectiveType).ɵdir;
 }
 
-function isPipeType(type: Function): type is PipeType {
+function isPipeType(type: FunctionWithDecorator): type is PipeType {
   return type && !!(type as PipeType).ɵpipe;
 }
 
-function isProviderType(type: Function): type is ProviderType {
+function isProviderType(type: FunctionWithDecorator): type is ProviderType {
   return type && !!(type as ProviderType).ɵprov;
 }
 
@@ -69,7 +69,7 @@ function doOnDestroy(this: InstanceWithTakeUntilDestroy) {
 
 function applyOnDestroyHook(def: HookableDefinition, handler: (this: InstanceWithTakeUntilDestroy) => void) {
   const oldOnDestroy = def.onDestroy;
-  def.onDestroy = function (this: InstanceWithTakeUntilDestroy): void {
+  def.onDestroy = function(this: InstanceWithTakeUntilDestroy): void {
     if (oldOnDestroy) {
       oldOnDestroy.apply(this);
     }
@@ -77,9 +77,9 @@ function applyOnDestroyHook(def: HookableDefinition, handler: (this: InstanceWit
   };
 }
 
-function applyOnDestroyToProvider(def: Function, handler: (this: InstanceWithTakeUntilDestroy) => void) {
+function applyOnDestroyToProvider(def: FunctionWithDecorator, handler: (this: InstanceWithTakeUntilDestroy) => void) {
   const oldOnDestroy = def.prototype.ngOnDestroy;
-  def.prototype.ngOnDestroy = function (this: InstanceWithTakeUntilDestroy, ...args: []): void {
+  def.prototype.ngOnDestroy = function(this: InstanceWithTakeUntilDestroy, ...args: []): void {
     if (oldOnDestroy) {
       oldOnDestroy.apply(this, args);
     }
@@ -116,7 +116,7 @@ function applyOnDestroyToInstance(instance: InstanceWithTakeUntilDestroy): void 
       );
     }
     const oldOnDestroy = instance.ngOnDestroy;
-    instance.ngOnDestroy = function (this: InstanceWithTakeUntilDestroy, ...args) {
+    instance.ngOnDestroy = function(this: InstanceWithTakeUntilDestroy, ...args) {
       oldOnDestroy.apply(instance, args);
       doOnDestroy.apply(this);
     };
