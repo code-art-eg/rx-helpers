@@ -7,7 +7,8 @@
     "build": "ng build rx-helpers --prod && cp-cli README.md dist/rx-helpers/README.md && cp-cli LICENSE dist/rx-helpers/LICENSE",
     "test": "ng test --project rx-helpers",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pub": "cd dist/rx-helpers && yarn publish --registry https://npm.pkg.github.com"
   },
   "private": true,
   "dependencies": {
