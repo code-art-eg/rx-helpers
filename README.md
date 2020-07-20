@@ -1,4 +1,4 @@
-# @code-art/rx-helpers
+# @code-art-eg/rx-helpers
 
 ## About the library
 
@@ -11,12 +11,12 @@ A library with [Rxjs](https://rxjs-dev.firebaseapp.com/) operators that can be u
 To install the library in your Angular application you need to run the following commands:
 
 ```bash
-$ npm install @code-art/rx-helpers --save
+$ npm install @code-art-eg/rx-helpers --save
 ```
 or
 
 ```bash
-$ yarn add @code-art/rx-helpers
+$ yarn add @code-art-eg/rx-helpers
 ```
 
 ### 2. Using withZone operator
@@ -26,7 +26,7 @@ The withZone operator will cause the observable next, error and complete callbac
 ```typescript
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { withZone } from '@code-art/rx-helpers';
+import { withZone } from '@code-art-eg/rx-helpers';
 
 @Component({
   selector: 'app-with-zone-example',
@@ -57,7 +57,7 @@ The `takeUntilDestroyed` operator will cause the observable to emit values until
 ```typescript
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { timer } from 'rxjs';
-import { takeUntilDestroyed, TakeUntilDestroyed } from '@code-art/rx-helpers';
+import { takeUntilDestroyed, TakeUntilDestroyed } from '@code-art-eg/rx-helpers';
 
 /* The following decorator is needed for components, directives, pipes and services when using Ivy */
 @TakeUntilDestroyed() 

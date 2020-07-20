@@ -3,7 +3,7 @@
   "dest": "../dist/rx-helpers",
   "lib": {
     "entryFile": "src/public_api.ts",
-    "amdId": "@code-art/rx-helpers",
+    "amdId": "@code-art-eg/rx-helpers",
     "umdId": "codeArt.rxHelpers"
   }
 }

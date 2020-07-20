@@ -20,10 +20,10 @@
       "dom"
     ],
     "paths": {
-      "@code-art/rx-helpers": [
+      "@code-art-eg/rx-helpers": [
         "dist/rx-helpers"
       ],
-      "@code-art/rx-helpers/*": [
+      "@code-art-eg/rx-helpers/*": [
         "dist/rx-helpers/*"
       ]
     }

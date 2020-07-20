@@ -1,6 +1,6 @@
 {
-  "name": "@code-art/rx-helpers",
-  "version": "9.0.1",
+  "name": "@code-art-eg/rx-helpers",
+  "version": "9.0.2",
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",

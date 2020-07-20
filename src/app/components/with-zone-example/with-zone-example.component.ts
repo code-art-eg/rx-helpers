@@ -1,6 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { withZone } from '@code-art/rx-helpers';
+import { withZone } from '@code-art-eg/rx-helpers';
 
 @Component({
   selector: 'app-with-zone-example',

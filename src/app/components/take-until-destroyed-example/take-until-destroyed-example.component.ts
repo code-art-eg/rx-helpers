@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { timer } from 'rxjs';
-import { takeUntilDestroyed, TakeUntilDestroyed } from '@code-art/rx-helpers';
+import { takeUntilDestroyed, TakeUntilDestroyed } from '@code-art-eg/rx-helpers';
 
 @TakeUntilDestroyed()
 @Component({
