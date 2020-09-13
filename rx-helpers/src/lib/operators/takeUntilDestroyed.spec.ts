@@ -1,5 +1,5 @@
 import { Component, OnDestroy, Injectable, Pipe, PipeTransform, Directive } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, waitForAsync } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import { takeUntilDestroyed, TakeUntilDestroyed } from './takeUntilDestroyed';
 
@@ -177,7 +177,7 @@ class TestServiceComponent {
 }
 
 describe('takeUntilDestroyed', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         TestUntilDestroyedComponent,

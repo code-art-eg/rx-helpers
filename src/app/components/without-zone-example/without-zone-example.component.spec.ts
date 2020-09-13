@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WithoutZoneExampleComponent } from './without-zone-example.component';
 
@@ -6,7 +6,7 @@ describe('WithoutZoneExampleComponent', () => {
   let component: WithoutZoneExampleComponent;
   let fixture: ComponentFixture<WithoutZoneExampleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ WithoutZoneExampleComponent ]
     })

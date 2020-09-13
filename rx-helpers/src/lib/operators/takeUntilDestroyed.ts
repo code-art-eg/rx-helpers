@@ -125,9 +125,9 @@ function applyOnDestroyToInstance(instance: InstanceWithTakeUntilDestroy): void 
 
 function applyOnDestroyToClass(target: FunctionWithDecorator): void {
   if (isComponentType(target)) {
-    applyOnDestroyHook(target.ɵcmp, doOnDestroy);
+    applyOnDestroyToProvider(target, doOnDestroy);
   } else if (isDirectiveType(target)) {
-    applyOnDestroyHook(target.ɵdir, doOnDestroy);
+    applyOnDestroyToProvider(target, doOnDestroy);
   } else if (isPipeType(target)) {
     applyOnDestroyHook(target.ɵpipe, doOnDestroy);
   } else {

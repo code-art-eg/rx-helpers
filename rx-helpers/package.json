@@ -1,13 +1,13 @@
 {
   "name": "@code-art-eg/rx-helpers",
-  "version": "9.0.3",
+  "version": "10.0.0",
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
+    "@angular/common": ">=10.0.0 < 11",
+    "@angular/core": ">=10.0.0 < 11",
     "rxjs": "^6.0.0"
   },
   "private": false,
-  "description": "A library with Rxjs operators that can be used in your Angular 8 projects.",
+  "description": "A library with Rxjs operators that can be used in your Angular 10 projects.",
   "author": "Sherif Elmetainy (Code Art)",
   "license": "MIT",
   "bugs": {
@@ -23,5 +23,8 @@
     "takeUntilDestroyed",
     "withZone"
   ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "homepage": "https://github.com/code-art-eg/rx-helpers#readme"
 }

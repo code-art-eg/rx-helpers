@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TakeUntilDestroyedExampleComponent } from './take-until-destroyed-example.component';
 
@@ -6,7 +6,7 @@ describe('TakeUntilDestroyedExampleComponent', () => {
   let component: TakeUntilDestroyedExampleComponent;
   let fixture: ComponentFixture<TakeUntilDestroyedExampleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TakeUntilDestroyedExampleComponent ]
     })
