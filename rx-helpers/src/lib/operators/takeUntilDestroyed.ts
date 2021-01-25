@@ -136,6 +136,7 @@ function applyOnDestroyToClass(target: FunctionWithDecorator): void {
   target[DECORATOR_APPLIED_SYMBOL] = true;
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export function TakeUntilDestroyed(): ClassDecorator {
   return applyOnDestroyToClass;
 }

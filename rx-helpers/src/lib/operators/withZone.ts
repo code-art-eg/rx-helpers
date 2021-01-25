@@ -41,6 +41,7 @@ class ZoneOperator<T> implements Operator<T, T> {
   }
 }
 
-export function withZone<T>(zone: NgZone): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) => source.lift(new ZoneOperator(zone));
-}
+export const withZone = <T>(zone: NgZone): MonoTypeOperatorFunction<T> =>
+  (source: Observable<T>) => source.lift(new ZoneOperator(zone));
+;
+

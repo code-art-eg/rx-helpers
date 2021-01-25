@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { withZone } from '@code-art-eg/rx-helpers';
 

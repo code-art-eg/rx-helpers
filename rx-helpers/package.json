@@ -1,13 +1,13 @@
 {
   "name": "@code-art-eg/rx-helpers",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "peerDependencies": {
-    "@angular/common": ">=10.0.0 < 11",
-    "@angular/core": ">=10.0.0 < 11",
+    "@angular/common": ">=11.0.0 < 12",
+    "@angular/core": ">=11.0.0 < 12",
     "rxjs": "^6.0.0"
   },
   "private": false,
-  "description": "A library with Rxjs operators that can be used in your Angular 10 projects.",
+  "description": "A library with Rxjs operators that can be used in your Angular 11 projects.",
   "author": "Sherif Elmetainy (Code Art)",
   "license": "MIT",
   "bugs": {

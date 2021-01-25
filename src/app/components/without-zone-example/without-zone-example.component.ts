@@ -18,6 +18,6 @@ export class WithoutZoneExampleComponent implements OnInit {
     });
    }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 }

@@ -7,12 +7,12 @@ import { outsideZone } from './outsideZone';
   template: 'TestDefaultSetupComponent works'
 })
 class TestNoZoneComponent {
+  public readonly observable: Observable<number>;
   private readonly subject = new Subject<number>();
   private value = 0;
-  public readonly observable = this.subject.asObservable();
 
   constructor() {
-
+    this.observable = this.subject.asObservable();
   }
 
   public triggerIncrementAction() {
@@ -24,9 +24,9 @@ class TestNoZoneComponent {
   template: 'TestZoneComponent works'
 })
 class TestZoneComponent {
+  public readonly observable: Observable<number>;
   private subject = new Subject<number>();
   private value = 0;
-  public readonly observable: Observable<number>;
 
   constructor(zone: NgZone) {
     this.observable = this.subject.asObservable().pipe(outsideZone(zone));
